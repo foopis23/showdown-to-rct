@@ -1,15 +1,33 @@
 {
   "name": "showdown-to-rctmod",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "description": "Convert Pokemon Showdown / PokePaste teams to Radical Cobblemon Trainer (RCT) mod JSON",
   "type": "module",
+  "main": "./dist/lib/index.js",
+  "module": "./dist/lib/index.js",
+  "types": "./dist/lib/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/lib/index.js",
+      "types": "./dist/lib/index.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "showdown-to-rct": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:lib": "tsc -p tsconfig.lib.json",
     "lint": "oxlint",
     "preview": "vite preview"
   },
   "dependencies": {
+    "commander": "^15.0.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
   },
@@ -21,5 +39,8 @@
     "oxlint": "^1.71.0",
     "typescript": "~6.0.2",
     "vite": "^8.1.1"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
