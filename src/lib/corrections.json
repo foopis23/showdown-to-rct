@@ -1,0 +1,22 @@
+{
+  "pokemon": [
+    {
+      "match": {
+        "species": { "$regex": "^(\\w+)hisui$" }
+      },
+      "then": {
+        "species": { "$set": "$1" },
+        "aspects": { "$append": "hisuian" }
+      }
+    },
+    {
+      "match": {
+        "species": { "$regex": "^(\\w+)alola$" }
+      },
+      "then": {
+        "species": { "$set": "$1" },
+        "aspects": { "$append": "alolan" }
+      }
+    }
+  ]
+}
